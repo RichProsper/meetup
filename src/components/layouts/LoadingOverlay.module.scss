@@ -1,0 +1,27 @@
+.LoadingOverlay {
+    height: calc(100% - 6.5rem);
+    display: flex;
+    justify-content: center;
+    padding-top: 15%;
+
+    & .content {      
+        & .spinner-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+
+            & .spinner {
+                width: 5rem;
+                height: 5rem;
+                border-radius: 50%;
+                border: .3rem solid;
+                border-color: var(--col-3rd-5) var(--col-1st-9) var(--col-1st-9) var(--col-1st-9);
+                animation: spinner-spin 1s cubic-bezier(0.0, 0, 0.2, 1) infinite;
+            }
+        }
+    }
+}
+
+@keyframes spinner-spin {
+    to {transform: rotate(360deg);}
+}

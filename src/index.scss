@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --MainNavHeight : 5rem;
+    // White: hsl(0, 0%, 100%)
+    --col-1st   : 0, 0%;
+    --col-1st-1 : hsl(var(--col-1st), 10%);
+    --col-1st-2 : hsl(var(--col-1st), 53%);
+    --col-1st-3 : hsl(var(--col-1st), 33%);
+    --col-1st-4 : hsl(var(--col-1st), 87%);
+    --col-1st-5 : hsla(var(--col-1st), 87%, .75);
+    --col-1st-6 : hsla(var(--col-1st), 0%, .75);
+    --col-1st-7 : hsla(var(--col-1st), 100%, .035);
+    --col-1st-8 : hsl(var(--col-1st), 13%);
+    --col-1st-9 : hsl(var(--col-1st), 0%);
+    --col-1st-10 : hsl(var(--col-1st), 100%);
+    // Dark Blue Grey: hsl(220, 13%, 18%)
+    --col-2nd   : 220;
+    --col-2nd-1 : hsl(var(--col-2nd), 13%, 15%);
+    // Dark Pink: hsl(339, 100%, 34%)
+    --col-3rd   : 339;
+    --col-3rd-1 : hsl(var(--col-3rd), 100%, 34%);
+    --col-3rd-2 : hsla(var(--col-3rd), 100%, 24%, 0);
+    --col-3rd-3 : hsla(var(--col-3rd), 100%, 24%, 1);
+    --col-3rd-4 : hsl(var(--col-3rd), 100%, 78%);
+    --col-3rd-5 : hsl(var(--col-3rd), 100%, 54%);
+}
+html {
+    background-color: var(--col-2nd-1);
+    height: 100%;
+    scroll-behavior: smooth;
+    font-size: 46.875%; /* 1rem = 7.5px */
+
+    @media only screen and (min-width: 900px) {
+        font-size: 62.5%; /* 1rem = 10px */
+    }
+    @media only screen and (min-width: 1800px) {
+        font-size: 78.125%; /* 1rem = 12.5px */
+    }
+    @media only screen and (min-width: 2700px) {
+        font-size: 93.75% /* 1rem = 15px */;
+    }
+}
+body {
+    height: 100%;
+    box-sizing: border-box;
+    color: var(--col-1st-4);
+    font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: .1rem;
+}
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: inherit;
+    letter-spacing: inherit;
+}
+*:focus {
+    outline: none;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+
+    &-track {
+        background: var(--col-1st-1);
+    }
+    &-thumb {
+        background: var(--col-1st-2);
+
+        &:hover {
+            background: var(--col-1st-3); 
+        }
+    }
+}

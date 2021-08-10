@@ -1,0 +1,45 @@
+.Page {
+    height: calc(100vh - var(--MainNavHeight));
+    padding: 0 20%;
+    overflow: auto;
+
+    & h1 {
+        text-align: center;
+        padding: 1.5rem 0;
+        letter-spacing: .2rem;
+    }
+    & .link {
+        position: relative;
+        color: inherit;
+        font-size: 2rem;
+        text-decoration: none;
+        margin: 0 .4rem;
+        padding: .2rem .4rem;
+        opacity: .5;
+        transition: .2s;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            width: 100%;
+        }
+        &::before {
+            height: 100%;
+            background-color: var(--col-3rd-1);
+            border-top-left-radius: .4rem;
+            border-top-right-radius: .4rem;
+        }
+        &::after {
+            bottom: -.2rem;
+            height: .2rem;
+            background-color: var(--col-1st-10);
+        }
+        &:hover {
+            opacity: .8;
+        }
+    }
+}
