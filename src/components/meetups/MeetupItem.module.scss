@@ -4,6 +4,7 @@
     & .image {
         aspect-ratio: 3 / 2;
         overflow: hidden;
+        border-radius: .5rem;
 
         & img {
             width: 100%;
