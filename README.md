@@ -1,6 +1,6 @@
 # MeetUp
 
-MeetUp allows users to post various meet up locations and favorite any of their choice.
+MeetUp allows users to post various meet up locations and favorite any of their choice.\
 This site was inspired by the [React Crash Course for Beginners 2021 - Learn ReactJS from Scratch in this 100% Free Tutorial!](https://youtu.be/Dorf8i6lCuk) by [Academind](https://www.youtube.com/channel/UCSJbGtTlrDami-tDGPUV9-w)
 
 ## Getting Started with Create React App
