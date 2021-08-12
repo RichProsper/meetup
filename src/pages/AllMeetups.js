@@ -18,6 +18,8 @@ export default function AllMeetups() {
         document.querySelector('a[href="/favorites"]').className = ''
         document.querySelector('a[href="/"]').className = navClasses.active
 
+        // To stop 'Can't perform a React state update on an unmounted component' error
+        let mounted = true
         // Get the Meetups Data
         firebaseDb.child('meetups').on('value', meetupsData => {  
             const data = meetupsData.val()
@@ -29,10 +31,16 @@ export default function AllMeetups() {
                     ...data[key]
                 })
             }
-
-            setMeetups(arr)
-            setIsLoading(false)
+            
+            if (mounted) {
+                setIsLoading(false)
+                setMeetups(arr)
+            }
         })
+
+        return function cleanup() {
+            mounted = false
+        }
     }, [])
 
     return (

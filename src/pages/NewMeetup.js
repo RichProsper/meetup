@@ -19,7 +19,8 @@ export default function NewMeetup() {
     const addMeetup = meetupData => {
         firebaseDb.child('meetups').push(meetupData, err => {
             if (err) console.log(err)
-            else history.replace('/')
+        }).then(() => {
+            history.replace('/')
         })
     }
 

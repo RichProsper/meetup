@@ -2,6 +2,7 @@ import Card from '../layouts/Card'
 import classes from './MeetupItem.module.css'
 import { useContext } from 'react'
 import FavoritesContext from '../../store/FavoritesContext'
+import firebaseDb from '../../firebase'
 
 export default function MeetupItem({ meetup }) {
     const favsContext = useContext(FavoritesContext)
@@ -13,6 +14,16 @@ export default function MeetupItem({ meetup }) {
         }
         else {
             favsContext.addFavorite({...meetup})
+        }
+    }
+
+    const deleteMeetup = id => {
+        const confirm = window.confirm(`Are you sure you want to delete this Meetup?`)
+        if (confirm) {
+            favsContext.removeFavorite(id)
+            firebaseDb.child(`meetups/${id}`).remove(err => {
+                if (err) console.log(err)
+            })
         }
     }
 
@@ -30,6 +41,9 @@ export default function MeetupItem({ meetup }) {
                 <div className={classes.action}>
                     <button type="button" onClick={toggleFavoriteStatus}>
                         {itemIsFavorite ? 'Remove From Favorites' : 'Add To Favorites'}
+                    </button>
+                    <button type="button" onClick={() => {deleteMeetup(meetup.id)}}>
+                        Delete Meetup
                     </button>
                 </div>
             </Card>

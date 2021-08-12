@@ -26,7 +26,7 @@
     }
     & .action {
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         padding: 1rem 0;
 
         & button {
@@ -37,11 +37,12 @@
             padding: 1rem 2rem;
             border-radius: .5rem;
             border: .2rem solid var(--col-3rd-4);
+            opacity: 1;
             transition: .2s;
 
             &:hover,
             &:focus {
-                letter-spacing: .3rem;
+                opacity: .7;
             }
         }
     }

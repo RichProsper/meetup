@@ -1,6 +1,6 @@
 .Page {
     height: calc(100vh - var(--MainNavHeight));
-    padding: 0 20%;
+    padding: 0 5%;
     overflow: auto;
 
     & h1 {
@@ -41,5 +41,12 @@
         &:hover {
             opacity: .8;
         }
+    }
+
+    @media only screen and (min-width: 500px) {
+        padding: 0 10%;
+    }
+    @media only screen and (min-width: 900px) {
+        padding: 0 20%;
     }
 }
