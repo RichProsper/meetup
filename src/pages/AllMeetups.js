@@ -2,7 +2,7 @@ import MeetupList from '../components/meetups/MeetupList'
 import classes from './Page.module.css'
 import navClasses from '../components/layouts/MainNav.module.css'
 import { useState, useEffect } from 'react'
-import { firebaseURL } from '../firebaseURL'
+import firebaseDb from '../firebase'
 import LoadingOverlay from '../components/layouts/LoadingOverlay'
 import { Link } from 'react-router-dom'
 
@@ -19,19 +19,18 @@ export default function AllMeetups() {
         document.querySelector('a[href="/"]').className = navClasses.active
 
         // Get the Meetups Data
-        fetch(firebaseURL).then(response => {
-            return response.json()
-        }).then(data => {
-            const meetupsArr = []
+        firebaseDb.child('meetups').on('value', meetupsData => {  
+            const data = meetupsData.val()
+            const arr = []
 
             for (const key in data) {
-                meetupsArr.push({
+                arr.push({
                     id: key,
                     ...data[key]
                 })
             }
 
-            setMeetups(meetupsArr)
+            setMeetups(arr)
             setIsLoading(false)
         })
     }, [])

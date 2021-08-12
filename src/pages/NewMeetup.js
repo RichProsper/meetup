@@ -3,7 +3,7 @@ import classes from './Page.module.css'
 import navClasses from '../components/layouts/MainNav.module.css'
 import { useHistory } from 'react-router'
 import { useEffect } from 'react'
-import { firebaseURL } from '../firebaseURL'
+import firebaseDb from '../firebase'
 
 export default function NewMeetup() {
     const history = useHistory()
@@ -17,15 +17,9 @@ export default function NewMeetup() {
     }, [])
 
     const addMeetup = meetupData => {
-        fetch(firebaseURL, {
-            method: 'POST',
-            body: JSON.stringify(meetupData),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(() => {
-            // Goes back to All Meetups Page
-            history.replace('/')
+        firebaseDb.child('meetups').push(meetupData, err => {
+            if (err) console.log(err)
+            else history.replace('/')
         })
     }
 
