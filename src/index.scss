@@ -14,14 +14,15 @@
     --col-1st-8 : hsl(var(--col-1st), 13%);
     --col-1st-9 : hsl(var(--col-1st), 0%);
     --col-1st-10 : hsl(var(--col-1st), 100%);
+    --col-1st-11 : hsla(var(--col-1st), 10%, .5);
     // Dark Blue Grey: hsl(220, 13%, 18%)
     --col-2nd   : 220;
     --col-2nd-1 : hsl(var(--col-2nd), 13%, 15%);
     // Dark Pink: hsl(339, 100%, 34%)
     --col-3rd   : 339;
     --col-3rd-1 : hsl(var(--col-3rd), 100%, 34%);
-    --col-3rd-2 : hsla(var(--col-3rd), 100%, 24%, 0);
-    --col-3rd-3 : hsla(var(--col-3rd), 100%, 24%, 1);
+    --col-3rd-2 : hsl(var(--col-3rd), 100%, 14%);
+    --col-3rd-3 : hsl(var(--col-3rd), 100%, 24%);
     --col-3rd-4 : hsl(var(--col-3rd), 100%, 78%);
     --col-3rd-5 : hsl(var(--col-3rd), 100%, 54%);
 }

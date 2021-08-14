@@ -8,10 +8,16 @@ export default function MainNav() {
     const [toggle, setToggle] = useState(false)
 
     return (
-        <header className={classes.MainNav}>
+        <header className={classes.MainNav} onClick={() => {setToggle(!toggle)}}>
             <div className={classes.logo}>MeetUps</div>
             <nav>
-                <ul>
+                <button type="button" className={classes.toggle}>
+                    {toggle ? <div className={classes.times}>&times;</div> : (
+                        <div className={classes.bars}></div>
+                    )}
+                </button>
+
+                <ul className={toggle ? classes.visible : ''}>
                     <li><Link to="/">All Meetups</Link></li>
                     <li><Link to="/new-meetup">New Meetup</Link></li>
                     <li>
@@ -20,11 +26,6 @@ export default function MainNav() {
                         </Link>
                     </li>
                 </ul>
-                <button type="button" className={classes.toggle} onClick={() => {setToggle(!toggle)}}>
-                    {toggle ? <div className={classes.times}>&times;</div> : (
-                        <div className={classes.bars}></div>
-                    )}
-                </button>
             </nav>
         </header>
     )
