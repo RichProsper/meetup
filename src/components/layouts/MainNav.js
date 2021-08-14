@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
 import classes from './MainNav.module.css'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import FavoritesContext from '../../store/FavoritesContext'
 
 export default function MainNav() {    
     const favsContext = useContext(FavoritesContext)
+    const [toggle, setToggle] = useState(false)
 
     return (
         <header className={classes.MainNav}>
@@ -19,6 +20,11 @@ export default function MainNav() {
                         </Link>
                     </li>
                 </ul>
+                <button type="button" className={classes.toggle} onClick={() => {setToggle(!toggle)}}>
+                    {toggle ? <div className={classes.times}>&times;</div> : (
+                        <div className={classes.bars}></div>
+                    )}
+                </button>
             </nav>
         </header>
     )
