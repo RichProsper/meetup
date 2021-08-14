@@ -25,6 +25,13 @@
     --col-3rd-3 : hsl(var(--col-3rd), 100%, 24%);
     --col-3rd-4 : hsl(var(--col-3rd), 100%, 78%);
     --col-3rd-5 : hsl(var(--col-3rd), 100%, 54%);
+    --col-3rd-6 : hsl(var(--col-3rd), 100%, 64%);
+    // Green: hsl(93, 98%, 35%)
+    --col-4th   : 93;
+    --col-4th-1 : hsl(var(--col-4th), 98%, 35%);
+    // Dark Red: hsl(349, 84%, 53%)
+    --col-5th   : 349;
+    --col-5th-1 : hsl(var(--col-5th), 84%, 53%);
 }
 html {
     background-color: var(--col-2nd-1);

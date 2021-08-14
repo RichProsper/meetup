@@ -16,6 +16,9 @@ export default function NewMeetup() {
         document.querySelector('a[href="/new-meetup"]').className = navClasses.active
     }, [])
 
+    /**
+     * @param {Object} meetupData 
+     */
     const addMeetup = meetupData => {
         firebaseDb.child('meetups').push(meetupData, err => {
             if (err) console.log(err)

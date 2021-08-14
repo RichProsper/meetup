@@ -1,12 +1,14 @@
 import Card from '../layouts/Card'
 import classes from './MeetupItem.module.css'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import FavoritesContext from '../../store/FavoritesContext'
 import firebaseDb from '../../firebase'
+import Modal from '../layouts/Modal'
 
 export default function MeetupItem({ meetup }) {
     const favsContext = useContext(FavoritesContext)
     const itemIsFavorite = favsContext.itemIsFavorite(meetup.id)
+    const [modal, setModal] = useState(false)
 
     const toggleFavoriteStatus = () => {
         if (itemIsFavorite) {
@@ -17,15 +19,17 @@ export default function MeetupItem({ meetup }) {
         }
     }
 
+    /**
+     * @param {String} id 
+     */
     const deleteMeetup = id => {
-        const confirm = window.confirm(`Are you sure you want to delete this Meetup?`)
-        if (confirm) {
-            favsContext.removeFavorite(id)
-            firebaseDb.child(`meetups/${id}`).remove(err => {
-                if (err) console.log(err)
-            })
-        }
+        favsContext.removeFavorite(id)
+        firebaseDb.child(`meetups/${id}`).remove(err => {
+            if (err) console.log(err)
+        })
     }
+
+    const closeModal = () => setModal(false)
 
     return (
         <li className={classes.MeetupItem}>
@@ -42,11 +46,20 @@ export default function MeetupItem({ meetup }) {
                     <button type="button" onClick={toggleFavoriteStatus}>
                         {itemIsFavorite ? 'Remove From Favorites' : 'Add To Favorites'}
                     </button>
-                    <button type="button" onClick={() => {deleteMeetup(meetup.id)}}>
+                    <button type="button" onClick={() => {setModal(true)}}>
                         Delete Meetup
                     </button>
                 </div>
             </Card>
+            {modal && (
+                <Modal
+                    closeModal={closeModal}
+                    headerText={meetup.title}
+                    bodyText='Are you sure you want to delete this Meetup?'
+                    meetupId={meetup.id}
+                    deleteMeetup={deleteMeetup}
+                />
+            )}
         </li>
     )
 }

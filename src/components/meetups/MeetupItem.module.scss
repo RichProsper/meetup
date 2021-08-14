@@ -27,7 +27,7 @@
     & .action {
         display: flex;
         justify-content: space-evenly;
-        padding: 1rem 0;
+        flex-wrap: wrap;
 
         & button {
             cursor: pointer;
@@ -38,6 +38,7 @@
             border-radius: .5rem;
             border: .2rem solid var(--col-3rd-4);
             opacity: 1;
+            margin: 1rem;
             transition: .2s;
 
             &:hover,

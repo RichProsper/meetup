@@ -6,6 +6,9 @@ export default function NewMeetupForm({ addMeetup }) {
     const [isFocused, setIsFocused] = useState('title')
     const form = useRef()
 
+    /**
+     * @param {SubmitEvent} e 
+     */
     const submitForm = e => {
         e.preventDefault()
 

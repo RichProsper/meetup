@@ -1,0 +1,105 @@
+.Modal {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--col-1st-11);
+    backdrop-filter: blur(.5rem);
+    padding: 10%;
+
+    & .content {
+        background-color: var(--col-1st-8);
+        border-radius: 1.5rem;
+        box-shadow: 0 .2rem .8rem var(--col-1st-6),
+                    0 -.2rem .8rem var(--col-1st-6);
+        border: .2rem solid var(--col-3rd-6);
+
+        & .header {
+            position: relative;
+            height: 4rem;
+            border-bottom: .2rem solid var(--col-1st-3);
+            
+            & h3 {
+                font-size: 2rem;
+                line-height: 4rem;
+                padding: 0 1rem;
+            }
+            & .close {
+                position: absolute;
+                top: -1.5rem;
+                right: -1.5rem;
+                width: 3rem;
+                height: 3rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                background-color: var(--col-1st-8);
+                border: .2rem solid;
+                border-color: var(--col-3rd-6) var(--col-3rd-6) var(--col-3rd-6) transparent;
+                transform: rotate(-45deg);
+                cursor: pointer;
+                color: inherit;
+                font-weight: 300;
+                font-size: 3rem;
+                line-height: 0;
+                transition: .2s;
+
+                & span {
+                    display: block;
+                    transform: rotate(45deg);
+                }
+                &:hover,
+                &:focus {
+                    color: var(--col-3rd-6);
+                }
+            }
+        }
+        & .body {
+            padding: 1rem;
+
+            & .btns {
+                margin-top: 1rem;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+
+                & button {
+                    cursor: pointer;
+                    margin: 1rem;
+                    background: none;
+                    border: .2rem solid;
+                    border-radius: .5rem;
+                    color: inherit;
+                    padding: .2rem 4rem;
+                    height: 100%;
+                    font-weight: 600;
+                    transition: .2s;
+
+                    &.confirm {
+                        border-color: var(--col-4th-1);
+
+                        &:hover,
+                        &:focus {
+                            color: var(--col-4th-1);
+                        }
+                    }
+                    &.cancel {
+                        border-color: var(--col-5th-1);
+
+                        &:hover,
+                        &:focus {
+                            color: var(--col-5th-1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 600px) {
+        padding: 10% 20%;
+    }
+}
