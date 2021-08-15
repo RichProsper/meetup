@@ -3,7 +3,7 @@ import AllMeetups from './pages/AllMeetups'
 import Favorites from './pages/Favorites'
 import NewMeetup from './pages/NewMeetup'
 import MainNav from './components/layouts/MainNav'
-import { MeetupsContextProvider } from './store/MeetupsContext'
+import { MeetupsContextProvider } from './context/MeetupsContext'
 
 export default function App() {
     return (

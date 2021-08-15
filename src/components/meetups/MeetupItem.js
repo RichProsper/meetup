@@ -1,7 +1,7 @@
 import Card from '../layouts/Card'
 import classes from './MeetupItem.module.css'
 import { useContext, useState } from 'react'
-import MeetupsContext from '../../store/MeetupsContext'
+import MeetupsContext from '../../context/MeetupsContext'
 import Modal from '../layouts/Modal'
 
 export default function MeetupItem({ meetup }) {

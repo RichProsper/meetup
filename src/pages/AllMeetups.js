@@ -2,7 +2,7 @@ import MeetupList from '../components/meetups/MeetupList'
 import classes from './Page.module.css'
 import navClasses from '../components/layouts/MainNav.module.css'
 import { useEffect, useContext } from 'react'
-import MeetupsContext from '../store/MeetupsContext'
+import MeetupsContext from '../context/MeetupsContext'
 import LoadingOverlay from '../components/layouts/LoadingOverlay'
 import { Link } from 'react-router-dom'
 

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import classes from './MainNav.module.css'
 import { useContext, useState, useRef } from 'react'
-import MeetupsContext from '../../store/MeetupsContext'
+import MeetupsContext from '../../context/MeetupsContext'
 
 export default function MainNav() {    
     const MeetupsCtx = useContext(MeetupsContext)

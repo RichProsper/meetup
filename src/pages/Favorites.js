@@ -1,7 +1,7 @@
 import classes from './Page.module.css'
 import navClasses from '../components/layouts/MainNav.module.css'
 import { useEffect, useContext } from 'react'
-import MeetupsContext from '../store/MeetupsContext'
+import MeetupsContext from '../context/MeetupsContext'
 import MeetupList from '../components/meetups/MeetupList'
 import LoadingOverlay from '../components/layouts/LoadingOverlay'
 
