@@ -1,11 +1,12 @@
 import classes from './Page.module.css'
 import navClasses from '../components/layouts/MainNav.module.css'
 import { useEffect, useContext } from 'react'
-import FavoritesContext from '../store/FavoritesContext'
+import MeetupsContext from '../store/MeetupsContext'
 import MeetupList from '../components/meetups/MeetupList'
+import LoadingOverlay from '../components/layouts/LoadingOverlay'
 
 export default function Favorites() {
-    const favsContext = useContext(FavoritesContext)
+    const MeetupsCtx = useContext(MeetupsContext)
 
     useEffect(() => {
         // Set the active link based on the current page and set the page title to current page
@@ -18,10 +19,11 @@ export default function Favorites() {
     return (
         <section className={classes.Page}>
             <h1>My Favorites</h1>
-            {favsContext.totalFavorites > 0 ? <MeetupList meetups={favsContext.favorites} /> : (
-                <p>You have no favorites...</p>
+            {MeetupsCtx.isLoading ? <LoadingOverlay text="Favorites" /> : (
+                MeetupsCtx.totalFavorites > 0 ? (
+                    <MeetupList meetups={MeetupsCtx.meetups.filter(meetup => meetup.isFavorite)} />
+                ) : <p>You have no favorites...</p>
             )}
-            
         </section>
     )
 }

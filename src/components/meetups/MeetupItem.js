@@ -1,33 +1,14 @@
 import Card from '../layouts/Card'
 import classes from './MeetupItem.module.css'
 import { useContext, useState } from 'react'
-import FavoritesContext from '../../store/FavoritesContext'
-import firebaseDb from '../../firebase'
+import MeetupsContext from '../../store/MeetupsContext'
 import Modal from '../layouts/Modal'
 
 export default function MeetupItem({ meetup }) {
-    const favsContext = useContext(FavoritesContext)
-    const itemIsFavorite = favsContext.itemIsFavorite(meetup.id)
+    const MeetupsCtx = useContext(MeetupsContext)
     const [modal, setModal] = useState(false)
 
-    const toggleFavoriteStatus = () => {
-        if (itemIsFavorite) {
-            favsContext.removeFavorite(meetup.id)
-        }
-        else {
-            favsContext.addFavorite({...meetup})
-        }
-    }
-
-    /**
-     * @param {String} id 
-     */
-    const deleteMeetup = id => {
-        favsContext.removeFavorite(id)
-        firebaseDb.child(`meetups/${id}`).remove(err => {
-            if (err) console.log(err)
-        })
-    }
+    const toggleFavoriteStatus = () => MeetupsCtx.toggleFavorite(meetup.id)
 
     const closeModal = () => setModal(false)
 
@@ -44,7 +25,7 @@ export default function MeetupItem({ meetup }) {
                 </div>
                 <div className={classes.action}>
                     <button type="button" onClick={toggleFavoriteStatus}>
-                        {itemIsFavorite ? 'Remove From Favorites' : 'Add To Favorites'}
+                        {meetup.isFavorite ? 'Remove From Favorites' : 'Add To Favorites'}
                     </button>
                     <button type="button" onClick={() => {setModal(true)}}>
                         Delete Meetup
@@ -57,7 +38,7 @@ export default function MeetupItem({ meetup }) {
                     headerText={meetup.title}
                     bodyText='Are you sure you want to delete this Meetup?'
                     meetupId={meetup.id}
-                    deleteMeetup={deleteMeetup}
+                    removeMeetup={MeetupsCtx.removeMeetup}
                 />
             )}
         </li>

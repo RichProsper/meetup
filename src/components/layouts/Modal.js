@@ -2,7 +2,7 @@ import classes from './Modal.module.css'
 import { useRef } from 'react'
 
 export default function Modal({
-    closeModal, headerText, bodyText, confirmBtnText, cancelBtnText, meetupId, deleteMeetup
+    closeModal, headerText, bodyText, confirmBtnText, cancelBtnText, meetupId, removeMeetup
 }) {
     const modalBg = useRef()
 
@@ -31,7 +31,7 @@ export default function Modal({
                         <button 
                             type="button" 
                             className={classes.confirm} 
-                            onClick={() => {deleteMeetup(meetupId)}}
+                            onClick={() => {removeMeetup(meetupId)}}
                         >
                             {confirmBtnText ? confirmBtnText : 'Yes'}
                         </button>

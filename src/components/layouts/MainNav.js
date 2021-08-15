@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 import classes from './MainNav.module.css'
 import { useContext, useState, useRef } from 'react'
-import FavoritesContext from '../../store/FavoritesContext'
+import MeetupsContext from '../../store/MeetupsContext'
 
 export default function MainNav() {    
-    const favsContext = useContext(FavoritesContext)
+    const MeetupsCtx = useContext(MeetupsContext)
     const [toggle, setToggle] = useState(false)
     const btn = useRef()
     const bars = useRef()
@@ -36,7 +36,7 @@ export default function MainNav() {
                     <li><Link to="/new-meetup">New Meetup</Link></li>
                     <li>
                         <Link to="/favorites">
-                            My Favorites <span className={classes.badge}>{favsContext.totalFavorites}</span>
+                            My Favorites <span className={classes.badge}>{MeetupsCtx.totalFavorites}</span>
                         </Link>
                     </li>
                 </ul>

@@ -3,13 +3,13 @@ import AllMeetups from './pages/AllMeetups'
 import Favorites from './pages/Favorites'
 import NewMeetup from './pages/NewMeetup'
 import MainNav from './components/layouts/MainNav'
-import { FavoritesContextProvider } from './store/FavoritesContext'
+import { MeetupsContextProvider } from './store/MeetupsContext'
 
 export default function App() {
     return (
         <div id="App">
-            <FavoritesContextProvider>
-                <Router>
+            <Router>
+                <MeetupsContextProvider>
                     <MainNav /> {/* Link Component cannot be used outside of Router component */}
                     
                     <Switch> {/* Switch Component ensures only one page is shown at a time */}
@@ -17,8 +17,8 @@ export default function App() {
                         <Route path="/new-meetup" component={withRouter(NewMeetup)} />
                         <Route path="/favorites" component={withRouter(Favorites)} />
                     </Switch>
-                </Router>
-            </FavoritesContextProvider>
+                </MeetupsContextProvider>
+            </Router>
         </div>
     )
 }

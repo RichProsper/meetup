@@ -1,12 +1,11 @@
 import NewMeetupForm from '../components/meetups/NewMeetupForm'
 import classes from './Page.module.css'
 import navClasses from '../components/layouts/MainNav.module.css'
-import { useHistory } from 'react-router'
-import { useEffect } from 'react'
-import firebaseDb from '../firebase'
+import { useEffect, useContext } from 'react'
+import MeetupsContext from '../store/MeetupsContext'
 
 export default function NewMeetup() {
-    const history = useHistory()
+    const MeetupsCtx = useContext(MeetupsContext)
 
     useEffect(() => {
         // Set the active link based on the current page and set the page title to current page
@@ -16,21 +15,10 @@ export default function NewMeetup() {
         document.querySelector('a[href="/new-meetup"]').className = navClasses.active
     }, [])
 
-    /**
-     * @param {Object} meetupData 
-     */
-    const addMeetup = meetupData => {
-        firebaseDb.child('meetups').push(meetupData, err => {
-            if (err) console.log(err)
-        }).then(() => {
-            history.replace('/')
-        })
-    }
-
     return (
         <section className={classes.Page}>
             <h1>New Meetup</h1>
-            <NewMeetupForm addMeetup={addMeetup} />
+            <NewMeetupForm addMeetup={MeetupsCtx.addMeetup} />
         </section>
     )
 }
