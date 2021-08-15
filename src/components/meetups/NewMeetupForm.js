@@ -16,7 +16,8 @@ export default function NewMeetupForm({ addMeetup }) {
             title: form.current.title.value,
             image: form.current.image.value,
             address: form.current.addr.value,
-            description: form.current.desc.value
+            description: form.current.desc.value,
+            isFavorite: false
         })
     }
 
