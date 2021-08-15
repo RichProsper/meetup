@@ -18,6 +18,7 @@ export default function Modal({
             <div className={classes.content}>
                 <div className={classes.header}>
                     <h3>{headerText ? headerText : 'Header...'}</h3>
+                    
                     <button type="button" className={classes.close} onClick={closeModal}>
                         <span>&times;</span>
                     </button>
@@ -25,6 +26,7 @@ export default function Modal({
 
                 <div className={classes.body}>
                     <p>{bodyText ? bodyText: 'Body...'}</p>
+
                     <div className={classes.btns}>
                         <button 
                             type="button" 
@@ -33,6 +35,7 @@ export default function Modal({
                         >
                             {confirmBtnText ? confirmBtnText : 'Yes'}
                         </button>
+
                         <button 
                             type="button" 
                             className={classes.cancel}
