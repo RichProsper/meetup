@@ -1,14 +1,14 @@
 import Card from '../layouts/Card'
 import classes from './MeetupItem.module.css'
-import { useContext, useState } from 'react'
-import MeetupsContext from '../../context/MeetupsContext'
+import { useState } from 'react'
+import useMeetupsCtx from '../../context/MeetupsContext'
 import Modal from '../layouts/Modal'
 
 export default function MeetupItem({ meetup }) {
-    const MeetupsCtx = useContext(MeetupsContext)
+    const { toggleFavorite, removeMeetup } = useMeetupsCtx()
     const [modal, setModal] = useState(false)
 
-    const toggleFavoriteStatus = () => MeetupsCtx.toggleFavorite(meetup.id)
+    const toggleFavoriteStatus = () => toggleFavorite(meetup.id)
 
     const closeModal = () => setModal(false)
 
@@ -38,7 +38,7 @@ export default function MeetupItem({ meetup }) {
                     headerText={meetup.title}
                     bodyText='Are you sure you want to delete this Meetup?'
                     meetupId={meetup.id}
-                    removeMeetup={MeetupsCtx.removeMeetup}
+                    removeMeetup={removeMeetup}
                 />
             )}
         </li>

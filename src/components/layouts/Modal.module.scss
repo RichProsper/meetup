@@ -7,7 +7,7 @@
     height: 100vh;
     background-color: var(--col-1st-11);
     backdrop-filter: blur(.5rem);
-    padding: 20% 10%;
+    padding: 15% 10%;
 
     & .content {
         background-color: var(--col-1st-8);
@@ -97,6 +97,6 @@
     }
 
     @media only screen and (min-width: 600px) {
-        padding: 20%;
+        padding: 15% 20%;
     }
 }

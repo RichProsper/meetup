@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react"
+import { createContext, useContext, useState, useEffect } from "react"
 import { useHistory } from 'react-router'
 import firebaseDb from "../firebase"
 
@@ -10,7 +10,10 @@ const MeetupsContext = createContext({
     toggleFavorite: id => {},
     totalFavorites: 0
 })
-export default MeetupsContext
+
+export default function useMeetupsCtx() {
+    return useContext(MeetupsContext)
+}
 
 export const MeetupsContextProvider = ({ children }) => {
     const history = useHistory()

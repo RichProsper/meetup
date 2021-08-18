@@ -1,13 +1,13 @@
 import MeetupList from '../components/meetups/MeetupList'
 import classes from './Page.module.css'
 import navClasses from '../components/layouts/MainNav.module.css'
-import { useEffect, useContext } from 'react'
-import MeetupsContext from '../context/MeetupsContext'
+import { useEffect } from 'react'
+import useMeetupsCtx from '../context/MeetupsContext'
 import LoadingOverlay from '../components/layouts/LoadingOverlay'
 import { Link } from 'react-router-dom'
 
 export default function AllMeetups() {
-    const MeetupsCtx = useContext(MeetupsContext)
+    const { isLoading, meetups } = useMeetupsCtx()
 
     // Handles initial reload
     useEffect(() => {
@@ -21,8 +21,8 @@ export default function AllMeetups() {
     return (
         <section className={classes.Page}>
             <h1>All Meetups</h1>
-            {MeetupsCtx.isLoading ? <LoadingOverlay text="Meetups" /> : (
-                MeetupsCtx.meetups.length > 0 ? <MeetupList meetups={MeetupsCtx.meetups} /> : (
+            {isLoading ? <LoadingOverlay text="Meetups" /> : (
+                meetups.length > 0 ? <MeetupList meetups={meetups} /> : (
                     <p>
                         You have no Meetups. Add a
                         <Link to="/new-meetup" className={classes.link}>New Meetup</Link>
