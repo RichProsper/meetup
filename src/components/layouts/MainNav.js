@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import classes from './MainNav.module.css'
 import { useState, useRef } from 'react'
-import useMeetupsCtx from '../../context/MeetupsContext'
+import useMeetupsCtx from '../../contexts/MeetupsContext'
 
 export default function MainNav() {    
     const { totalFavorites } = useMeetupsCtx()

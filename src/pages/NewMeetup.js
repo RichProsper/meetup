@@ -2,7 +2,7 @@ import NewMeetupForm from '../components/meetups/NewMeetupForm'
 import classes from './Page.module.css'
 import navClasses from '../components/layouts/MainNav.module.css'
 import { useEffect } from 'react'
-import useMeetupsCtx from '../context/MeetupsContext'
+import useMeetupsCtx from '../contexts/MeetupsContext'
 
 export default function NewMeetup() {
     const { addMeetup } = useMeetupsCtx()
