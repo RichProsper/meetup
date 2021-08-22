@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, withRouter, Switch } from "react-router
 import AllMeetups from './pages/AllMeetups'
 import Favorites from './pages/Favorites'
 import NewMeetup from './pages/NewMeetup'
+import Signup from "./pages/Signup"
 import MainNav from './components/layouts/MainNav'
 import { MeetupsContextProvider } from './contexts/MeetupsContext'
 
@@ -16,6 +17,7 @@ export default function App() {
                         <Route exact path="/" component={withRouter(AllMeetups)} />
                         <Route path="/new-meetup" component={withRouter(NewMeetup)} />
                         <Route path="/favorites" component={withRouter(Favorites)} />
+                        <Route path="/signup" component={withRouter(Signup)} />
                     </Switch>
                 </MeetupsContextProvider>
             </Router>

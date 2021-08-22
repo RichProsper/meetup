@@ -34,7 +34,7 @@ export default function NewMeetupForm({ addMeetup }) {
                             onFocus={() => {setIsFocused('title')}}
                             onBlur={() => {setIsFocused('')}}
                             required 
-                            />
+                        />
                         <span>Meetup Title *</span>
                     </div>
                     <div className={classes.control + (isFocused === 'image' ? ' ' + classes.focused : '')}>
@@ -45,7 +45,7 @@ export default function NewMeetupForm({ addMeetup }) {
                             onFocus={() => {setIsFocused('image')}}
                             onBlur={() => {setIsFocused('')}}
                             required 
-                            />
+                        />
                         <span>Image URL *</span>
                     </div>
                     <div className={classes.control + (isFocused === 'addr' ? ' ' + classes.focused : '')}>
@@ -56,7 +56,7 @@ export default function NewMeetupForm({ addMeetup }) {
                             onFocus={() => {setIsFocused('addr')}}
                             onBlur={() => {setIsFocused('')}}
                             required 
-                            />
+                        />
                         <span>Address *</span>
                     </div>
                     <div className={classes.control + (isFocused === 'desc' ? ' ' + classes.focused : '')}>
@@ -67,7 +67,7 @@ export default function NewMeetupForm({ addMeetup }) {
                             onFocus={() => {setIsFocused('desc')}}
                             onBlur={() => {setIsFocused('')}}
                             required
-                            ></textarea>
+                        ></textarea>
                         <span>Description *</span>
                     </div>
                 </div>
