@@ -5,7 +5,7 @@ import firebaseDb from "../firebase"
 const MeetupsContext = createContext({
     isLoading: true,
     meetups: [],
-    addMeetup: newMeetup => {},
+    addMeetup: meetupData => {},
     removeMeetup: id => {},
     toggleFavorite: id => {},
     totalFavorites: 0

@@ -32,6 +32,7 @@
     // Dark Red: hsl(349, 84%, 53%)
     --col-5th   : 349;
     --col-5th-1 : hsl(var(--col-5th), 84%, 53%);
+    --col-5th-2 : hsl(var(--col-5th), 84%, 43%);
 }
 html {
     background-color: var(--col-2nd-1);

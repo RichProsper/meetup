@@ -5,21 +5,31 @@ import { useEffect } from 'react'
 import useMeetupsCtx from '../contexts/MeetupsContext'
 import LoadingOverlay from '../components/layouts/LoadingOverlay'
 import { Link } from 'react-router-dom'
+import useAuthCtx from '../contexts/AuthContext'
+import UserInfo from '../components/layouts/UserInfo'
 
 export default function AllMeetups() {
     const { isLoading, meetups } = useMeetupsCtx()
+    const { currentUser, loadingUser } = useAuthCtx()
 
     // Handles initial reload
     useEffect(() => {
-        // Set the active link based on the current page and set the page title to current page
+        // Set the page title to current page
         document.title = 'MeetUps'
-        document.querySelector('a[href="/new-meetup"]').className = ''
-        document.querySelector('a[href="/favorites"]').className = ''
-        document.querySelector('a[href="/"]').className = navClasses.active
     }, [])
+
+    useEffect(() => {
+        if (!loadingUser) {
+            document.querySelector('a[href="/new-meetup"]').className = ''
+            document.querySelector('a[href="/favorites"]').className = ''
+            document.querySelector('a[href="/"]').className = navClasses.active
+        }
+    }, [loadingUser])
 
     return (
         <section className={classes.Page}>
+            {!loadingUser && <UserInfo currentUser={currentUser} />}
+
             <h1>All Meetups</h1>
             {isLoading ? <LoadingOverlay text="Meetups" /> : (
                 meetups.length > 0 ? <MeetupList meetups={meetups} /> : (

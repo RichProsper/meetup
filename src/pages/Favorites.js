@@ -4,20 +4,30 @@ import { useEffect } from 'react'
 import useMeetupsCtx from '../contexts/MeetupsContext'
 import MeetupList from '../components/meetups/MeetupList'
 import LoadingOverlay from '../components/layouts/LoadingOverlay'
+import useAuthCtx from '../contexts/AuthContext'
+import UserInfo from '../components/layouts/UserInfo'
 
 export default function Favorites() {
     const { isLoading, totalFavorites, meetups } = useMeetupsCtx()
+    const { currentUser, loadingUser } = useAuthCtx()
 
     useEffect(() => {
-        // Set the active link based on the current page and set the page title to current page
+        // Set the page title to current page
         document.title = 'Favorites'
-        document.querySelector('a[href="/new-meetup"]').className = ''
-        document.querySelector('a[href="/"]').className = ''
-        document.querySelector('a[href="/favorites"]').className = navClasses.active
     }, [])
+
+    useEffect(() => {
+        if (!loadingUser) {
+            document.querySelector('a[href="/new-meetup"]').className = ''
+            document.querySelector('a[href="/"]').className = ''
+            document.querySelector('a[href="/favorites"]').className = navClasses.active
+        }
+    }, [loadingUser])
 
     return (
         <section className={classes.Page}>
+            {!loadingUser && <UserInfo currentUser={currentUser} />}
+            
             <h1>My Favorites</h1>
             {isLoading ? <LoadingOverlay text="Favorites" /> : (
                 totalFavorites > 0 ? (

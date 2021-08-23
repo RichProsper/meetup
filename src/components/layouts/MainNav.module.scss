@@ -29,7 +29,12 @@
             &.visible {
                 display: block;
             }
-            & li a {
+            & li a,
+            & li button {
+                border: none;
+                font-size: inherit;
+                cursor: pointer;
+                width: 100%;
                 position: relative;
                 text-decoration: none;
                 color: inherit;
@@ -137,7 +142,8 @@
                 &.visible {
                     display: flex;
                 }
-                & li a {
+                & li a,
+                & li button {
                     background-color: unset;
 
                     &:hover,
