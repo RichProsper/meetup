@@ -21,7 +21,7 @@ export default function Signup() {
 
     useEffect(() => {
         if(!loadingUser) {
-            // document.querySelector('a[href="/forgot-password"]').className = ''
+            document.getElementById('resetPass').className = ''
             document.getElementById('signin').className = ''
             document.getElementById('signup').className = navClasses.active
         }

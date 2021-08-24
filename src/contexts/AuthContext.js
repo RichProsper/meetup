@@ -5,12 +5,17 @@ import { useHistory } from 'react-router'
 const AuthContext = createContext({
     currentUser: {},
     signup: (email, pass, passConfirm) => {},
-    signin: (emial, pass) => {},
+    signin: (email, pass) => {},
     signout: () => {},
+    resetPassword: email => {},
     errMsgSignUp: '',
     setErrMsgSignUp: msg => {},
     errMsgSignIn: '',
     setErrMsgSignIn: msg => {},
+    errMsgResetPass: '',
+    setErrMsgResetPass: msg => {},
+    successMsgResetPass: '',
+    setSuccessMsgResetPass: msg => {},
     isLoading: false,
     loadingUser: true
 })
@@ -23,6 +28,8 @@ export const AuthContextProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState({})
     const [errMsgSignUp, setErrMsgSignUp] = useState('')
     const [errMsgSignIn, setErrMsgSignIn] = useState('')
+    const [errMsgResetPass, setErrMsgResetPass] = useState('')
+    const [successMsgResetPass, setSuccessMsgResetPass] = useState('')
     const [isLoading, setIsLoading] = useState(false)
     const [loadingUser, setLoadingUser] = useState(true)
     const history = useHistory()
@@ -49,8 +56,14 @@ export const AuthContextProvider = ({ children }) => {
             await auth.createUserWithEmailAndPassword(email, pass)
             history.push('/')
         }
-        catch {
-            setErrMsgSignUp('Account creation failed!')
+        catch(e) {
+            if (e.code === 'auth/email-already-in-use') {
+                setErrMsgSignUp('Sign Up Failed! Account already exists.')
+            }
+            else {
+                setErrMsgSignUp('Sign Up Failed!')
+                console.log(e)
+            }
         }
 
         setIsLoading(false)
@@ -63,8 +76,20 @@ export const AuthContextProvider = ({ children }) => {
             await auth.signInWithEmailAndPassword(email, pass)
             history.push('/')
         }
-        catch {
-            setErrMsgSignIn('Sign In failed!')
+        catch(e) {
+            switch(e.code) {
+                case 'auth/user-not-found':
+                    setErrMsgSignIn('Sign In failed! Incorrect Email.')
+                    break
+
+                case 'auth/wrong-password':
+                    setErrMsgSignIn('Sign In failed! Incorrect Password')
+                    break
+
+                default:
+                    setErrMsgSignIn('Sign In failed!')
+                    console.log(e)
+            }
         }
 
         setIsLoading(false)
@@ -83,15 +108,42 @@ export const AuthContextProvider = ({ children }) => {
         setIsLoading(false)
     }
 
+    const resetPassword = async email => {
+        try {
+            setErrMsgResetPass('')
+            setIsLoading(true)
+            await auth.sendPasswordResetEmail(email)
+            setSuccessMsgResetPass(`Success! Reset password link was sent to your email.`)
+        }
+        catch(e) {
+            setSuccessMsgResetPass('')
+
+            if(e.code === 'auth/user-not-found') {
+                setErrMsgResetPass(`Reset Password Failed! Account not found.`)
+            }
+            else {
+                setErrMsgResetPass('Reset Password Failed!')
+                console.log(e)
+            }
+        }
+
+        setIsLoading(false)
+    }
+
     const context = {
         currentUser,
         signup,
         signin,
         signout,
+        resetPassword,
         errMsgSignUp,
         setErrMsgSignUp,
         errMsgSignIn,
         setErrMsgSignIn,
+        errMsgResetPass,
+        setErrMsgResetPass,
+        successMsgResetPass,
+        setSuccessMsgResetPass,
         isLoading,
         loadingUser
     }

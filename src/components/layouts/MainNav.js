@@ -50,6 +50,7 @@ export default function MainNav() {
                             <>
                                 <li><Link to="/signup" id="signup">Sign Up</Link></li>
                                 <li><Link to="/signin" id="signin">Sign In</Link></li>
+                                <li><Link to="/reset-password" id="resetPass">Reset Password</Link></li>
                             </>
                         )
                     )}

@@ -1,5 +1,5 @@
 .Page {
-    height: calc(100vh - var(--MainNavHeight));
+    height: calc(100vh - var(--MainNavHeight) - var(--CopyrightHeight));
     padding: 0 5%;
     overflow: auto;
 
@@ -46,6 +46,10 @@
         margin-top: .5rem;
         padding-top: 1rem;
         border-top: .1rem solid var(--col-1st-2);
+
+        &:last-child {
+            margin-top: 1.5rem;
+        }
     }
 
     @media only screen and (min-width: 500px) {

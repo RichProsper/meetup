@@ -1,11 +1,17 @@
 .NewMeetupForm {
     padding: 1rem;
 
-    & .error {
+    & .error,
+    & .success {
         margin-bottom: 3.2rem;
         padding: 0 .5rem;
         line-height: 4rem;
+    }
+    & .error {
         background-color: var(--col-5th-2);
+    }
+    & .success {
+        background-color: var(--col-4th-2);
     }
     & .control {
         position: relative;
@@ -13,6 +19,13 @@
 
         & input {
             height: 4rem;
+
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus {
+                box-shadow: 0 0 0 5rem var(--col-1st-1) inset;
+                -webkit-text-fill-color: var(--col-1st-4);
+            }
         }
         & input,
         & textarea {
