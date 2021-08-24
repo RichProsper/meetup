@@ -69,6 +69,10 @@ export const AuthContextProvider = ({ children }) => {
         setIsLoading(false)
     }
 
+    /**
+     * @param {String} email 
+     * @param {String} pass 
+     */
     const signin = async (email, pass) => {
         try {
             setErrMsgSignIn('')
@@ -108,6 +112,9 @@ export const AuthContextProvider = ({ children }) => {
         setIsLoading(false)
     }
 
+    /**
+     * @param {String} email 
+     */
     const resetPassword = async email => {
         try {
             setErrMsgResetPass('')
