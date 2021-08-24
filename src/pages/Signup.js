@@ -17,7 +17,7 @@ export default function Signup() {
         // Set the page title to current page
         document.title = 'Sign Up'
         return () => setErrMsgSignUp('')
-    }, [])
+    }, [setErrMsgSignUp])
 
     useEffect(() => {
         if(!loadingUser) {

@@ -22,7 +22,7 @@ export default function Signin() {
             setErrMsgResetPass('')
             setSuccessMsgResetPass('')
         }
-    }, [])
+    }, [setErrMsgResetPass, setSuccessMsgResetPass])
 
     useEffect(() => {
         if (!loadingUser) {

@@ -17,7 +17,7 @@ export default function Signin() {
         // Set the page title to current page
         document.title = 'Sign In'
         return () => setErrMsgSignIn('')
-    }, [])
+    }, [setErrMsgSignIn])
 
     useEffect(() => {
         if (!loadingUser) {
