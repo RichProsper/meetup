@@ -1,4 +1,4 @@
-# MeetUp
+# MeetUps
 
 MeetUps allows users to post various meet up locations and favorite any of their choice.\
 MeetUps was built using Reactjs, Firebase (User Authentication and CRUD Operations) and Sass.
