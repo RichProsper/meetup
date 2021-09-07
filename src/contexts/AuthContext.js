@@ -119,7 +119,10 @@ export const AuthContextProvider = ({ children }) => {
         try {
             setErrMsgResetPass('')
             setIsLoading(true)
-            await auth.sendPasswordResetEmail(email)
+            await auth.sendPasswordResetEmail(email, {
+                url: 'https://nifty-lamport-8a79cd.netlify.app/signin',
+                handleCodeInApp: false
+            })
             setSuccessMsgResetPass(`Success! Reset password link was sent to your email.`)
         }
         catch(e) {

@@ -44,9 +44,8 @@ export default function NewMeetupForm({ addMeetup }) {
                             placeholder="URL..."
                             onFocus={() => {setIsFocused('image')}}
                             onBlur={() => {setIsFocused('')}}
-                            required 
                         />
-                        <span>Image URL *</span>
+                        <span>Image URL</span>
                     </div>
                     <div className={classes.control + (isFocused === 'addr' ? ' ' + classes.focused : '')}>
                         <input 
@@ -66,9 +65,8 @@ export default function NewMeetupForm({ addMeetup }) {
                             placeholder="Description..."
                             onFocus={() => {setIsFocused('desc')}}
                             onBlur={() => {setIsFocused('')}}
-                            required
                         ></textarea>
-                        <span>Description *</span>
+                        <span>Description</span>
                     </div>
                 </div>
 

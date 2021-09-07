@@ -3,6 +3,7 @@ import useAuthCtx from "./contexts/AuthContext"
 
 export default function PrivateRoute({ component: Component, ...rest }) {
     const { loadingUser, currentUser } = useAuthCtx()
+    
     return (
         <Route
             {...rest}

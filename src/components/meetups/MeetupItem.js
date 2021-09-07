@@ -15,14 +15,18 @@ export default function MeetupItem({ meetup }) {
     return (
         <li className={classes.MeetupItem}>
             <Card> {/* This is done using the 'children' prop of Card */}
-                <div className={classes.image}>
-                    <img src={meetup.image} alt={meetup.title} />
-                </div>
+                {meetup?.image && (
+                    <div className={classes.image}>
+                        <img src={meetup.image} alt={meetup.title} />
+                    </div>
+                )}
+
                 <div className={classes.content}>
                     <h3>{meetup.title}</h3>
                     <address>{meetup.address}</address>
-                    <p>{meetup.description}</p>
+                    {meetup?.description && <p>{meetup.description}</p>}
                 </div>
+                
                 <div className={classes.action}>
                     <button type="button" onClick={toggleFavoriteStatus}>
                         {meetup.isFavorite ? 'Remove From Favorites' : 'Add To Favorites'}
@@ -32,6 +36,7 @@ export default function MeetupItem({ meetup }) {
                     </button>
                 </div>
             </Card>
+
             {modal && (
                 <Modal
                     closeModal={closeModal}
