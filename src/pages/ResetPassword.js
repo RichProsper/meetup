@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from 'react'
 import LoadingOverlay from '../components/layouts/LoadingOverlay'
 import useAuthCtx from '../contexts/AuthContext'
 
-export default function Signin() {
+export default function ResetPassword() {
     const [isFocused, setIsFocused] = useState('email')
     const form = useRef()
     const { 
