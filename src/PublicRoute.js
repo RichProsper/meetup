@@ -9,7 +9,7 @@ export default function PublicRoute({ component: Component, ...rest }) {
             {...rest}
             render={props => {
                 return !loadingUser && (
-                    currentUser ? <Redirect to="/" /> : <Component {...props} />
+                    currentUser ? <Redirect to="/all-meetups" /> : <Component {...props} />
                 )
             }}
         ></Route>

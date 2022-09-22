@@ -54,7 +54,7 @@ export const AuthContextProvider = ({ children }) => {
             setErrMsgSignUp('')
             setIsLoading(true)
             await auth.createUserWithEmailAndPassword(email, pass)
-            history.push('/')
+            history.push('/all-meetups')
         }
         catch(e) {
             if (e.code === 'auth/email-already-in-use') {
@@ -62,7 +62,7 @@ export const AuthContextProvider = ({ children }) => {
             }
             else {
                 setErrMsgSignUp('Sign Up Failed!')
-                console.log(e)
+                console.error(e)
             }
         }
 
@@ -78,7 +78,7 @@ export const AuthContextProvider = ({ children }) => {
             setErrMsgSignIn('')
             setIsLoading(true)
             await auth.signInWithEmailAndPassword(email, pass)
-            history.push('/')
+            history.push('/all-meetups')
         }
         catch(e) {
             switch(e.code) {
@@ -92,7 +92,7 @@ export const AuthContextProvider = ({ children }) => {
 
                 default:
                     setErrMsgSignIn('Sign In failed!')
-                    console.log(e)
+                    console.error(e)
             }
         }
 
@@ -106,7 +106,7 @@ export const AuthContextProvider = ({ children }) => {
             history.push('/signin')
         }
         catch(e) {
-            console.log(e)
+            console.error(e)
         }
 
         setIsLoading(false)
@@ -133,7 +133,7 @@ export const AuthContextProvider = ({ children }) => {
             }
             else {
                 setErrMsgResetPass('Reset Password Failed!')
-                console.log(e)
+                console.error(e)
             }
         }
 

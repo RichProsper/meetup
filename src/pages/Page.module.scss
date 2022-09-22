@@ -3,12 +3,12 @@
     padding: 0 5%;
     overflow: auto;
 
-    & h1 {
+    h1 {
         text-align: center;
         padding: 1.5rem 0;
         letter-spacing: .2rem;
     }
-    & .link {
+    .link {
         position: relative;
         color: inherit;
         font-size: 2rem;
@@ -42,7 +42,7 @@
             opacity: .8;
         }
     }
-    & .auth-p {
+    .auth-p {
         margin-top: .5rem;
         padding-top: 1rem;
         border-top: .1rem solid var(--col-1st-2);
