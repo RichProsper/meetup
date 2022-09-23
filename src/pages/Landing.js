@@ -8,9 +8,9 @@ export default function Landing() {
             <div className={classes.main}>
                 <span className={classes.logo}>MeetUps</span>
                 <span className={classes.pitch}>
-                    Save your meet up locations.
-                    <br />Choose your favorites.
-                    <br />View them anytime, anyhwere, on any device.
+                    <span className={classes.gradient}>Save</span> your meet up locations.
+                    <br /><span className={classes.gradient}>Choose</span> your favorites.
+                    <br /><span className={classes.gradient}>View</span> them anytime, anyhwere, on any device.
                 </span>
                 <div className={classes.cta}>
                     <Link to="/signup" className={classes.link}>Sign Up</Link>
