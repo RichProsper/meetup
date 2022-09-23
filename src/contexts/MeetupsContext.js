@@ -53,7 +53,7 @@ export const MeetupsContextProvider = ({ children }) => {
      */
     const addMeetup = meetupData => {
         firebaseDb.child(`meetups/${currentUser.uid}`).push(meetupData, err => {
-            if (err) console.log(err)
+            if (err) console.error(err)
         }).then(() => {
             history.replace('/')
         })
@@ -64,7 +64,7 @@ export const MeetupsContextProvider = ({ children }) => {
      */
     const removeMeetup = id => {
         firebaseDb.child(`meetups/${currentUser.uid}/${id}`).remove(err => {
-            if (err) console.log(err)
+            if (err) console.error(err)
         })
     }
     
@@ -76,7 +76,7 @@ export const MeetupsContextProvider = ({ children }) => {
         fav.isFavorite = !fav.isFavorite
 
         firebaseDb.child(`meetups/${currentUser.uid}/${id}`).set(fav, err => {
-            if (err) console.log(err)
+            if (err) console.error(err)
         })
     }
             
