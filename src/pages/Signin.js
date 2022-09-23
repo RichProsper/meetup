@@ -37,6 +37,8 @@ export default function Signin() {
 
     return (
         <section className={pageClasses.Page}>
+            <div className={pageClasses.banner}></div>
+
             <h1>Sign In</h1>
 
             {isLoading ? <LoadingOverlay /> : (
@@ -45,7 +47,7 @@ export default function Signin() {
                         <div className={formCls.error}>
                             {errMsgSignIn && <span>{errMsgSignIn}</span>}
                         </div>
-    
+
                         <div id="controls">
                             <div className={formCls.control + (isFocused === 'email' ? ' ' + formCls.focused : '')}>
                                 <input 
@@ -74,12 +76,12 @@ export default function Signin() {
                                 <span>Password *</span>
                             </div>
                         </div>
-    
+
                         <div className={formCls.action}>
                             <button type="submit">Sign In</button>
                         </div>
                     </form>
-    
+
                     <p className={pageClasses['auth-p']}>
                         Don't have an account? <Link to="/signup" className={pageClasses.link}>Sign Up</Link>
                     </p>

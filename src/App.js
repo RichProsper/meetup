@@ -11,27 +11,25 @@ import AllContexts from './contexts/AllContexts'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
 import ResetPassword from './pages/ResetPassword'
-import Copyright from './components/layouts/Copyright'
 
 export default function App() {
     return (
         <Router>
-            <AllContexts>
-                <MainNav /> {/* Link Component cannot be used outside of Router component */}
-                                    
+            <AllContexts>                                    
                 <Switch> {/* Switch Component ensures only one page is shown at a time */}
-                    <PrivateRoute path="/all-meetups" component={withRouter(AllMeetups)} />
-                    <PrivateRoute path="/new-meetup" component={withRouter(NewMeetup)} />
-                    <PrivateRoute path="/favorites" component={withRouter(Favorites)} />
                     <PublicRoute exact path="/" component={withRouter(Landing)} />
-                    <PublicRoute path="/signup" component={withRouter(Signup)} />
-                    <PublicRoute path="/signin" component={withRouter(Signin)} />
-                    <PublicRoute path="/reset-password" component={withRouter(ResetPassword)} />
+                    <>
+                        <MainNav />
+                        <PrivateRoute path="/all-meetups" component={withRouter(AllMeetups)} />
+                        <PrivateRoute path="/new-meetup" component={withRouter(NewMeetup)} />
+                        <PrivateRoute path="/favorites" component={withRouter(Favorites)} />
+                        <PublicRoute path="/signup" component={withRouter(Signup)} />
+                        <PublicRoute path="/signin" component={withRouter(Signin)} />
+                        <PublicRoute path="/reset-password" component={withRouter(ResetPassword)} />
+                    </>
                     {/* Catches all the invalid URLs and redirects to "/" */}
                     <Redirect to="/" /> 
                 </Switch>
-
-                <Copyright />
             </AllContexts>
         </Router>
     )

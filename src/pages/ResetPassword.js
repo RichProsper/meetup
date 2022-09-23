@@ -42,6 +42,8 @@ export default function ResetPassword() {
 
     return (
         <section className={pageClasses.Page}>
+            <div className={pageClasses.banner}></div>
+            
             <h1>Reset Password</h1>
 
             {isLoading ? <LoadingOverlay /> : (

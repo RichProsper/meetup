@@ -37,6 +37,8 @@ export default function Signup() {
 
     return (
         <section className={pageClasses.Page}>
+            <div className={pageClasses.banner}></div>
+            
             <h1>Sign Up</h1>
 
             {isLoading ? <LoadingOverlay /> : (

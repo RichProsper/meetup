@@ -23,7 +23,7 @@
             &:-webkit-autofill,
             &:-webkit-autofill:hover,
             &:-webkit-autofill:focus {
-                box-shadow: 0 0 0 5rem var(--col-1st-1) inset;
+                box-shadow: 0 0 0 5rem hsl(0, 0%, 20%) inset;
                 -webkit-text-fill-color: var(--col-1st-4);
             }
         }
