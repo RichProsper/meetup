@@ -1,6 +1,6 @@
 .Page {
     position: relative;
-    height: calc(100vh - var(--MainNavHeight));
+    min-height: calc(100vh - var(--MainNavHeight));
     padding: 0 5%;
     overflow: auto;
 
