@@ -14,7 +14,7 @@ export default function ErrorRoute({ component: Component, ...rest }) {
         <Route
             {...rest}
             render={props => {
-                return !loadingUser && !isValidURL(props.match.url) && (
+                return !loadingUser && !isValidURL(props.location.pathname) && (
                     currentUser ? <Redirect to="/all-meetups" /> : <Redirect to="/signin" />
                 )
             }}
