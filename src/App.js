@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, withRouter, Switch } from 'react-router-dom'
-import { Redirect } from 'react-router'
 import Landing from './pages/Landing'
 import AllMeetups from './pages/AllMeetups'
 import Favorites from './pages/Favorites'
@@ -10,6 +9,7 @@ import MainNav from './components/layouts/MainNav'
 import AllContexts from './contexts/AllContexts'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
+import ErrorRoute from './ErrorRoute'
 import ResetPassword from './pages/ResetPassword'
 
 export default function App() {
@@ -26,9 +26,9 @@ export default function App() {
                         <PublicRoute path="/signup" component={withRouter(Signup)} />
                         <PublicRoute path="/signin" component={withRouter(Signin)} />
                         <PublicRoute path="/reset-password" component={withRouter(ResetPassword)} />
-                    </>
-                    {/* Catches all the invalid URLs and redirects to "/" */}
-                    <Redirect to="/" /> 
+                        {/* Catches all the invalid URLs and redirects to "/signin" */}
+                        <ErrorRoute />
+                    </> 
                 </Switch>
             </AllContexts>
         </Router>
