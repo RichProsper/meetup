@@ -18,7 +18,7 @@ export default function Landing() {
                 </div>
             </div>
             <footer className={classes.attribution}>
-                Photo by <strong><a target="blank_" href="https://www.pexels.com/@samkolder?utm_content=attributionCopyText&amp;utm_medium=referral&amp;utm_source=pexels">Sam Kolder</a></strong> from <strong><a target="blank_" href="https://www.pexels.com/photo/three-men-standing-near-waterfalls-2387873/?utm_content=attributionCopyText&amp;utm_medium=referral&amp;utm_source=pexels">Pexels</a></strong>
+                Photo by <strong><a target="blank_" rel="noopener" href="https://www.pexels.com/@samkolder?utm_content=attributionCopyText&amp;utm_medium=referral&amp;utm_source=pexels">Sam Kolder</a></strong> from <strong><a target="blank_" rel="noopener" href="https://www.pexels.com/photo/three-men-standing-near-waterfalls-2387873/?utm_content=attributionCopyText&amp;utm_medium=referral&amp;utm_source=pexels">Pexels</a></strong>
             </footer>
         </section>
     )
