@@ -2,7 +2,7 @@
   "name": "meetup",
   "version": "2.2.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://nifty-lamport-8a79cd.netlify.app/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
